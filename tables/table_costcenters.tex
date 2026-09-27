@@ -1,0 +1,22 @@
+\begin{tabular}{@{}l rrr rrr rrr@{}}
+  \toprule
+  & \multicolumn{3}{c}{Node.js} & \multicolumn{3}{c}{Deno} & \multicolumn{3}{c}{Bun} \\
+  \cmidrule(lr){2-4} \cmidrule(lr){5-7} \cmidrule(lr){8-10}
+  Cost center & WS & St & Dg & WS & St & Dg & WS & St & Dg \\
+  \midrule
+  Kernel & 46 & 12 & 15 & 55 & 18 & 34 & 78 & 37 & 37 \\
+  QUIC engine & $<$1 & 27 & 28 & $<$1 & 8 & 12 & -- & 7 & 10 \\
+  \texttt{tokio} & -- & -- & -- & 7 & 3 & 5 & -- & 17 & 25 \\
+  JS engine + JIT & 21 & 35 & 36 & 10 & 15 & 16 & 2 & 8 & 3 \\
+  Garbage collection & 2 & 7 & 2 & 1 & 26 & 2 & $<$1 & 4 & 3 \\
+  TLS record layer & 7 & $<$1 & $<$1 & 8 & 2 & 3 & 5 & $<$1 & -- \\
+  TLS crypto & 3 & 1 & 1 & 4 & 2 & 3 & 5 & 1 & 1 \\
+  Bindings/ops & 9 & 5 & 6 & 7 & 3 & 3 & 4 & 6 & 6 \\
+  Log filtering & -- & -- & -- & -- & 3 & 6 & -- & $<$1 & -- \\
+  \texttt{libc} & 11 & 11 & 11 & 4 & 13 & 9 & 5 & 11 & 10 \\
+  Unsymbolized & $<$1 & 1 & 2 & $<$1 & $<$1 & 1 & $<$1 & 5 & 1 \\
+  Unclassified & 1 & $<$1 & $<$1 & 4 & 6 & 5 & 2 & 4 & 3 \\
+  \midrule
+  \textbf{CPU $\mu$s/msg} & 16.3 & 74.0 & 60.5 & 15.3 & 57.8 & 29.2 & 7.9 & 56.0 & 69.8 \\
+  \bottomrule
+\end{tabular}

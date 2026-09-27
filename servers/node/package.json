@@ -1,0 +1,20 @@
+{
+  "name": "@benchmark-runner/node-servers",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Node.js echo servers (WebSocket, SSE, short/long polling, WebTransport) for the benchmark-runner suite.",
+  "scripts": {
+    "start:ws": "node websocket.js",
+    "start:sse": "node sse.js",
+    "start:short-polling": "node short-polling.js",
+    "start:long-polling": "node long-polling.js",
+    "start:webtransport": "node webtransport-fails-components.js",
+    "start:webtransport-datagram": "node webtransport-datagram.js"
+  },
+  "dependencies": {
+    "@fails-components/webtransport": "^1.6.3",
+    "@fails-components/webtransport-transport-http3-quiche": "^1.6.3",
+    "ws": "^8.18.0"
+  }
+}
